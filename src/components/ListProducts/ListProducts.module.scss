@@ -1,0 +1,13 @@
+@import '../../_global';
+
+.section {
+  align-items: center;
+  margin: 16px 0;
+}
+
+.list {
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 65px 35px;
+}

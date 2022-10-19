@@ -1,0 +1,133 @@
+@import '../../_global';
+
+.card a {
+  &:hover > .preview {
+    transform: scale(1.05);
+  }
+}
+
+.preview {
+  margin: 0 7px 11px 7px;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+.charac {
+  margin-bottom: 17px;
+  border-radius: 10px;
+  background-color: $light-gray;
+  text-align: center;
+  padding: 7px 6px;
+
+  &_block {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.015em;
+    color: $dark-gray;
+
+    & + & {
+      margin-top: 7px;
+    }
+
+    span {
+      width: 100%;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+
+    span + span {
+      margin-left: 6px;
+    }
+
+    .charac_selected {
+      background: #ffffff;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+
+    .charac_unvaliable {
+      color: $gray;
+    }
+  }
+}
+
+.bottom_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+
+  span {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
+.toCart {
+  border-radius: 30px;
+  padding: 11px 15px 11px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.1s;
+  color: $dark-orange;
+  border: 1px solid $dark-orange;
+  background-color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background-color: $orange;
+    border: 1px solid $orange;
+  }
+
+  &:hover > .cartCount {
+    background-color: #fff;
+    color: $orange;
+  }
+
+  &:hover > svg path {
+    fill: #fff;
+  }
+
+  svg {
+    margin-right: 7px;
+
+    path {
+      fill: $dark-orange;
+    }
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .cartCount {
+    padding: 3px 7px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: $dark-orange;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    margin-left: 4px;
+    line-height: 16px;
+  }
+}
