@@ -16,6 +16,8 @@ body {
   font-weight: 400;
   line-height: 26px;
   color: #000000;
+  display: flex;
+  justify-content: center;
 }
 
 .wrapper {
@@ -27,8 +29,9 @@ body {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #fff;
-  max-width: 1340px;
-  margin: 43px auto 0px auto;
+  min-width: 1340px;
+  margin: 43px;
+  padding-bottom: 40px;
   overflow: hidden;
 }
 

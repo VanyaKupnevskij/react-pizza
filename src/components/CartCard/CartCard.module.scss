@@ -1,0 +1,108 @@
+@import '../../_global';
+
+.card {
+  border-top: 1px solid #f4f4f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+}
+
+.preview {
+  margin: 30px 15px 30px 0;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.title {
+  margin-bottom: 3px;
+  max-width: 300px;
+}
+
+.charac {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: $gray;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  margin-right: 93px;
+
+  button {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $dark-orange;
+    background-color: transparent;
+    transform: scale(1);
+    transition: 0.1s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .count {
+    margin: 0 12px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: 0.01em;
+  }
+}
+
+.price {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  margin-right: 87px;
+
+  span {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
+.delete {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.1s;
+  color: $dark-orange;
+  border: 2px solid $gray;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background-color: $orange;
+    border: 1px solid $orange;
+  }
+
+  &:hover > svg path {
+    fill: #fff;
+  }
+
+  svg {
+    path {
+      fill: $gray;
+    }
+  }
+}

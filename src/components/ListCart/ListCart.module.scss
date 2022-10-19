@@ -1,0 +1,142 @@
+@import '../../_global';
+
+.section {
+  align-items: center;
+  margin: 64px 228px 100px 228px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.title {
+  padding-left: 45px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-image: url('../../../public/images/cart_black.svg');
+  }
+}
+
+.clear {
+  padding-left: 28px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: $gray;
+  background-color: transparent;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url('../../../public/images/trash.svg');
+  }
+
+  &:hover {
+    color: $dark-gray;
+  }
+}
+
+.list {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 20px 0;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: 0.01em;
+
+  .total_price b {
+    color: $orange;
+  }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #fff;
+
+  button {
+    padding: 18px 36px;
+    background-color: #fff;
+    border-radius: 30px;
+  }
+
+  .btn_back {
+    color: $gray;
+    border: 1px solid $gray;
+    padding: 18px 28px 18px 45px;
+    transition: 0.1s;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 14px;
+      top: 0;
+      bottom: 2px;
+      left: 31px;
+      margin: auto 0;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      background-image: url('../../../public/images/back.svg');
+    }
+
+    &:hover {
+      border: 1px solid $dark-gray;
+      color: $dark-gray;
+    }
+  }
+
+  .btn_buy {
+    color: #fff;
+    background-color: $orange;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    transition: 0.1s;
+    transform: translateY(0);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 2px 5px 5px rgba($color: #000000, $alpha: 0.3);
+    }
+  }
+}
