@@ -1,0 +1,76 @@
+@import '../../_global';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    height: 1px;
+    width: 250%;
+    background-color: #f7f7f7;
+  }
+}
+
+.info {
+  margin: 49px 0 40px;
+
+  a {
+    display: flex;
+  }
+
+  .logo {
+    margin-right: 17px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .subtitle {
+    color: #7b7b7b;
+    font-size: 16px;
+  }
+}
+
+.cart {
+  border-radius: 30px;
+  padding: 16px 23px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  background-color: $orange;
+
+  .price {
+    padding-right: 9px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: 25px;
+      width: 1px;
+      top: -3px;
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+
+  .cart_count {
+    margin-left: 13px;
+    display: flex;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+}

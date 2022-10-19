@@ -1,0 +1,63 @@
+@import '_libs.scss';
+@import '_reset.scss';
+@import '_vars.scss';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 320px;
+  background-color: #ffdf8c;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  color: #000000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 85px);
+
+  font-size: 18px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+  max-width: 1340px;
+  margin: 43px auto 0px auto;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.hidden {
+  display: none;
+}
