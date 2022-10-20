@@ -42,7 +42,9 @@ function ListCart() {
         </span>
       </div>
       <div className={styles.buttons}>
-        <button className={styles.btn_back}>Вернуться назад</button>
+        <Link to={'/'}>
+          <button className={styles.btn_back}>Вернуться назад</button>
+        </Link>
         <button className={styles.btn_buy}>Оплатить сейчас</button>
       </div>
     </section>

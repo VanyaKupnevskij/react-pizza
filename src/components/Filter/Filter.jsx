@@ -5,14 +5,14 @@ import styles from './Filter.module.scss';
 function Filter() {
   return (
     <section className={styles.section}>
-      <div className={styles.types}>
-        <button className={[styles.types_item, styles.types_selected].join(' ')}>Все</button>
-        <button className={styles.types_item}>Мясные</button>
-        <button className={styles.types_item}>Вегетарианская</button>
-        <button className={styles.types_item}>Гриль</button>
-        <button className={styles.types_item}>Острые</button>
-        <button className={styles.types_item}>Закрытые</button>
-      </div>
+      <ul className={styles.types}>
+        <li className={styles.types_selected}>Все</li>
+        <li>Мясные</li>
+        <li>Вегетарианская</li>
+        <li>Гриль</li>
+        <li>Острые</li>
+        <li>Закрытые</li>
+      </ul>
       <div className={styles.characteristics}>
         <span>Сортировка по:</span>
         <span className={styles.charac}>популярности</span>

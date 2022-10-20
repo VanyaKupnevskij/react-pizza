@@ -6,7 +6,7 @@ import ListCart from '../components/ListCart/ListCart';
 import EmptyCart from '../components/EmptyCart/EmptyCart';
 
 function Cart() {
-  let isEmpty = true;
+  let isEmpty = false;
 
   return (
     <>

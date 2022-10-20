@@ -56,9 +56,9 @@
   transition: 0.1s;
   margin-top: 88px;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid $dark-gray;
-    color: $dark-gray;
   }
 }

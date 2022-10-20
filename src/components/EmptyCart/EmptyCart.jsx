@@ -14,7 +14,9 @@ function EmptyCart() {
         Для того, чтобы заказать пиццу, перейди на главную страницу.
       </p>
       <img src="images/emptyImage.jpg" />
-      <button className={styles.btn_back}>Вернуться назад</button>
+      <Link to={'/'}>
+        <button className={styles.btn_back}>Вернуться назад</button>
+      </Link>
     </section>
   );
 }
