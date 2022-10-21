@@ -13,7 +13,7 @@ function Card({ id, title, imageUrl, price, types, sizes }) {
 
   return (
     <section className={styles.card}>
-      <Link to={'/prduct/' + id}>
+      <Link to={'/product/' + id}>
         <img className={styles.preview} src={imageUrl} alt="pizza" />
         <h2 className={styles.title}>{title}</h2>
       </Link>
