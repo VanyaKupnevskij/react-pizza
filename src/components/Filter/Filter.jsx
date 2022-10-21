@@ -26,6 +26,7 @@ function Filter() {
       <ul className={styles.types}>
         {categories.map((item, ind) => (
           <li
+            key={ind}
             onClick={() => onClickCategory(ind)}
             className={activeCategory == ind ? styles.types_selected : ''}>
             {item}
@@ -43,6 +44,7 @@ function Filter() {
         <ul className={[styles.sort_list, isOpenSort ? styles.popup_opened : ''].join(' ')}>
           {sortes.map((item, ind) => (
             <li
+              key={ind}
               onClick={() => onClickSort(ind)}
               className={activeSort == ind ? styles.sort_selected : ''}>
               {item}

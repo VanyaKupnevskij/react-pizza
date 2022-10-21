@@ -2,29 +2,48 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Card.module.scss';
 
-function Card({ id, title, preview, price, cartCount }) {
+function Card({ id, title, imageUrl, price, types, sizes }) {
+  const [cartCount, setCartCount] = React.useState(0);
+  const [selectedType, setSelectedType] = React.useState(0);
+  const [selectedSize, setSelectedSize] = React.useState(0);
+  const exsistTypes = ['тонкое', 'традиционное'];
+
+  console.log('types', types);
+  console.log('sizes', sizes);
+
   return (
     <section className={styles.card}>
       <Link to={'/prduct/' + id}>
-        <img className={styles.preview} src={preview} alt="pizza" />
+        <img className={styles.preview} src={imageUrl} alt="pizza" />
         <h2 className={styles.title}>{title}</h2>
       </Link>
       <div className={styles.charac}>
         <div className={styles.charac_block}>
-          <span className={styles.charac_selected}>тонкое</span>
-          <span>традиционнное</span>
+          {types.map((type, i) => (
+            <span
+              key={i}
+              onClick={() => setSelectedType(i)}
+              className={selectedType == i ? styles.charac_selected : ''}>
+              {exsistTypes[type]}
+            </span>
+          ))}
         </div>
         <div className={styles.charac_block}>
-          <span className={styles.charac_selected}>28 см.</span>
-          <span>30 см.</span>
-          <span className={styles.charac_unvaliable}>40 см.</span>
+          {sizes.map((size, i) => (
+            <span
+              key={i}
+              onClick={() => setSelectedSize(i)}
+              className={selectedSize == i ? styles.charac_selected : ''}>
+              {size} см.
+            </span>
+          ))}
         </div>
       </div>
       <div className={styles.bottom_block}>
         <span className={styles.price}>
           от <span>{price}</span> грн
         </span>
-        <button className={styles.toCart}>
+        <button className={styles.toCart} onClick={() => setCartCount(cartCount + 1)}>
           <svg
             width="12"
             height="12"
