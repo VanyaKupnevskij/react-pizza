@@ -1,6 +1,7 @@
 import React from 'react';
 import AppContext from '../../context';
 import styles from './Sort.module.scss';
+import cn from 'classnames';
 
 function Sort() {
   const [isOpenSort, setOpenSort] = React.useState(false);
@@ -30,7 +31,7 @@ function Sort() {
           {selectedSort}
         </span>
       </div>
-      <ul className={[styles.sort_list, isOpenSort ? styles.popup_opened : ''].join(' ')}>
+      <ul className={cn(styles.sort_list, { [styles.popup_opened]: isOpenSort })}>
         {sortes.map((item, ind) => (
           <li
             key={ind}

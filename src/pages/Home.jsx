@@ -11,10 +11,11 @@ import styles from './Home.module.scss';
 
 function Home() {
   const [activeSort, setActiveSort] = React.useState({ name: 'популярности', sort: 'rating' });
+  const [activeCategory, setActiveCategory] = React.useState(0);
 
   return (
     <>
-      <AppContext.Provider value={{ activeSort, setActiveSort }}>
+      <AppContext.Provider value={{ activeSort, setActiveSort, activeCategory, setActiveCategory }}>
         <Header />
         <section className={styles.section}>
           <Filter />

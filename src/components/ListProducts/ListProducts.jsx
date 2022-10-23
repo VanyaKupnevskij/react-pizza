@@ -10,14 +10,17 @@ function ListProducts() {
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   const { activeSort } = React.useContext(AppContext);
+  const { activeCategory } = React.useContext(AppContext);
 
   React.useEffect(() => {
     setIsLoaded(false);
     try {
       const sortBy = activeSort.sort.replace('-', '');
       const order = activeSort.sort.includes('-') ? 'desc' : 'asc';
+      const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
       fetch(
-        'https://6352be6aa9f3f34c3747f338.mockapi.io/products?page=1&limit=4' +
+        'https://6352be6aa9f3f34c3747f338.mockapi.io/products?page=1&limit=10' +
+          category +
           '&sortBy=' +
           sortBy +
           '&order=' +
@@ -31,7 +34,7 @@ function ListProducts() {
     } catch (err) {
       console.log(err);
     }
-  }, [activeSort]);
+  }, [activeSort, activeCategory]);
 
   return (
     <section className={styles.section}>
