@@ -15,7 +15,7 @@ function Home() {
   const [activePage, setPage] = React.useState(1);
 
   return (
-    <>
+    <main>
       <AppContext.Provider
         value={{
           activeSort,
@@ -32,7 +32,7 @@ function Home() {
         </section>
         <ListProducts />
       </AppContext.Provider>
-    </>
+    </main>
   );
 }
 

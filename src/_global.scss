@@ -23,16 +23,23 @@ body {
 .wrapper {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 75px);
+  min-height: calc(100vh - 90px);
 
   font-size: 18px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background-color: #fff;
-  min-width: 1340px;
+  max-width: 1680px;
   margin: 43px;
+
   padding-bottom: 40px;
   overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    margin: 13px;
+  }
 }
 
 .main {
@@ -43,7 +50,6 @@ body {
 }
 
 .container {
-  max-width: 100%;
   margin: 0 auto;
   padding: 0 48px;
   width: 100%;

@@ -10,9 +10,18 @@ function ListProducts() {
   const [products, setProducts] = React.useState([]);
   const [isLoaded, setIsLoaded] = React.useState(false);
 
+  const refRoot = React.useRef(null);
+
   const { activeSort } = React.useContext(AppContext);
   const { activeCategory } = React.useContext(AppContext);
   const { activePage } = React.useContext(AppContext);
+
+  function countGetProductByWidth(width) {
+    if (width <= 808) return 4;
+    else if (width <= 1063) return 6;
+    else if (width <= 1343) return 8;
+    else return 10;
+  }
 
   React.useEffect(() => {
     setIsLoaded(false);
@@ -20,7 +29,7 @@ function ListProducts() {
       const sortBy = activeSort.sort.replace('-', '');
       const order = activeSort.sort.includes('-') ? 'desc' : 'asc';
       const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
-      const limit = 4;
+      const limit = countGetProductByWidth(refRoot.current.offsetWidth);
       const curPage = activePage;
       fetch(
         'https://6352be6aa9f3f34c3747f338.mockapi.io/products?' +
@@ -45,7 +54,7 @@ function ListProducts() {
   }, [activeSort, activeCategory, activePage]);
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={refRoot}>
       <h1 className={styles.title}>Все пиццы</h1>
       <div className={styles.list}>
         {isLoaded
@@ -62,3 +71,19 @@ function ListProducts() {
 }
 
 export default ListProducts;
+
+function Block() {
+  const ref = React.useRef(null);
+
+  const [width, setWidth] = React.useState(0);
+
+  React.useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+  }, []);
+
+  return (
+    <span ref={ref}>
+      <p>Width: {width}</p>
+    </span>
+  );
+}

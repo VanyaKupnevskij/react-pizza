@@ -8,6 +8,28 @@
 .list {
   margin-top: 35px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 65px 35px;
+
+  @media (max-width: 1525px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1245px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 990px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 695px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 695px) {
+  .title {
+    text-align: center;
+  }
 }

@@ -1,6 +1,11 @@
 .section {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   margin: 40px 0 16px 0;
+
+  @media (max-width: 1290px) {
+    justify-content: center;
+  }
 }

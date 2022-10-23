@@ -3,6 +3,7 @@
 header {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   position: relative;
 
@@ -15,10 +16,23 @@ header {
     width: 250%;
     background-color: #f7f7f7;
   }
+
+  @media (max-width: 520px) {
+    justify-content: center;
+
+    .info {
+      max-width: 500px;
+      text-align: center;
+    }
+  }
 }
 
 .info {
   margin: 49px 0 40px;
+
+  @media (max-width: 635px) {
+    max-width: 225px;
+  }
 
   a {
     display: flex;

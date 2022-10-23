@@ -7,6 +7,8 @@
 }
 
 .preview {
+  min-height: 260px;
+  object-fit: contain;
   margin: 0 7px 11px 7px;
   transition: 0.3s;
   transform: scale(1);
@@ -15,6 +17,7 @@
 .title {
   text-align: center;
   width: 100%;
+  height: 35px;
   margin-bottom: 22px;
 }
 

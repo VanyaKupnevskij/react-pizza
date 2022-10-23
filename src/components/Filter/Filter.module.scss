@@ -2,6 +2,8 @@
 
 .types {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
@@ -11,11 +13,17 @@
     background-color: #f9f9f9;
     border-radius: 30px;
     transition: 0.2s;
+    margin-top: 8px;
     cursor: pointer;
 
     &:hover {
       background-color: $dark-gray;
       color: #fff;
+    }
+
+    @media (max-width: 500px) {
+      padding: 10px 23px;
+      font-size: 14px;
     }
   }
 
