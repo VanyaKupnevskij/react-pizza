@@ -14,7 +14,7 @@ function ListProducts() {
 
   const { activeSort } = React.useContext(AppContext);
   const { activeCategory } = React.useContext(AppContext);
-  const { activePage } = React.useContext(AppContext);
+  const { activePage, setActivePage } = React.useContext(AppContext);
 
   function countGetProductByWidth(width) {
     if (width <= 808) return 4;
@@ -23,14 +23,14 @@ function ListProducts() {
     else return 10;
   }
 
-  React.useEffect(() => {
+  function loadData() {
     setIsLoaded(false);
+    const sortBy = activeSort.sort.replace('-', '');
+    const order = activeSort.sort.includes('-') ? 'desc' : 'asc';
+    const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
+    const limit = countGetProductByWidth(refRoot.current.offsetWidth);
+    const curPage = activePage;
     try {
-      const sortBy = activeSort.sort.replace('-', '');
-      const order = activeSort.sort.includes('-') ? 'desc' : 'asc';
-      const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
-      const limit = countGetProductByWidth(refRoot.current.offsetWidth);
-      const curPage = activePage;
       fetch(
         'https://6352be6aa9f3f34c3747f338.mockapi.io/products?' +
           '&page=' +
@@ -47,11 +47,20 @@ function ListProducts() {
         .then((res) => {
           setIsLoaded(true);
           setProducts(res);
+          window.scrollTo(0, 0);
         });
     } catch (err) {
       console.log(err);
     }
-  }, [activeSort, activeCategory, activePage]);
+  }
+
+  React.useEffect(() => {
+    setActivePage(1);
+    loadData();
+  }, [activeCategory]);
+  React.useEffect(() => {
+    loadData();
+  }, [activeSort, activePage]);
 
   return (
     <section className={styles.section} ref={refRoot}>

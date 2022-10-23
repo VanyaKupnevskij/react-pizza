@@ -12,7 +12,7 @@ import styles from './Home.module.scss';
 function Home() {
   const [activeSort, setActiveSort] = React.useState({ name: 'популярности', sort: 'rating' });
   const [activeCategory, setActiveCategory] = React.useState(0);
-  const [activePage, setPage] = React.useState(1);
+  const [activePage, setActivePage] = React.useState(1);
 
   return (
     <main>
@@ -23,7 +23,7 @@ function Home() {
           activeCategory,
           setActiveCategory,
           activePage,
-          setPage,
+          setActivePage,
         }}>
         <Header />
         <section className={styles.section}>

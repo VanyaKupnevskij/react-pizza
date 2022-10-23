@@ -5,10 +5,10 @@ import styles from './Paginator.module.scss';
 import { TiArrowLeftThick, TiArrowRightThick } from 'react-icons/ti';
 
 function Paginator({ countTotalPages = 1 }) {
-  const { activePage, setPage } = React.useContext(AppContext);
+  const { activePage, setActivePage } = React.useContext(AppContext);
 
   function onClickPage(id) {
-    activePage !== id && id >= 1 && id <= countTotalPages && setPage(id);
+    activePage !== id && id >= 1 && id <= countTotalPages && setActivePage(id);
   }
 
   return (
