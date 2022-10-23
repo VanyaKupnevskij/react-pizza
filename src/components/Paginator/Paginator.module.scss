@@ -1,0 +1,46 @@
+@import '../../_global';
+
+.items {
+  margin-top: 50px;
+  display: flex;
+  font-weight: 700;
+  font-size: 16px;
+
+  li {
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    border-radius: 30px;
+    border: 1px solid $orange;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $orange;
+      color: #fff;
+    }
+  }
+
+  .selected {
+    background-color: $orange;
+    color: #fff;
+  }
+
+  li + li {
+    margin-left: 9px;
+  }
+
+  .unalialable {
+    color: $gray;
+    border: none;
+
+    &:hover {
+      background-color: transparent;
+      color: $gray;
+      cursor: default;
+    }
+  }
+}

@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './ListProducts.module.scss';
 import Card from '../Card/Card';
-
 import Skeleton from '../Card/Skeleton';
+import Paginator from '../Paginator/Paginator';
+
 import AppContext from '../../context';
 
 function ListProducts() {
@@ -11,6 +12,7 @@ function ListProducts() {
 
   const { activeSort } = React.useContext(AppContext);
   const { activeCategory } = React.useContext(AppContext);
+  const { activePage } = React.useContext(AppContext);
 
   React.useEffect(() => {
     setIsLoaded(false);
@@ -18,8 +20,14 @@ function ListProducts() {
       const sortBy = activeSort.sort.replace('-', '');
       const order = activeSort.sort.includes('-') ? 'desc' : 'asc';
       const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
+      const limit = 4;
+      const curPage = activePage;
       fetch(
-        'https://6352be6aa9f3f34c3747f338.mockapi.io/products?page=1&limit=10' +
+        'https://6352be6aa9f3f34c3747f338.mockapi.io/products?' +
+          '&page=' +
+          curPage +
+          '&limit=' +
+          limit +
           category +
           '&sortBy=' +
           sortBy +
@@ -34,7 +42,7 @@ function ListProducts() {
     } catch (err) {
       console.log(err);
     }
-  }, [activeSort, activeCategory]);
+  }, [activeSort, activeCategory, activePage]);
 
   return (
     <section className={styles.section}>
@@ -48,6 +56,7 @@ function ListProducts() {
               return <Skeleton key={i} />;
             })}
       </div>
+      <Paginator countTotalPages={3} />
     </section>
   );
 }
