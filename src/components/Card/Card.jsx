@@ -8,9 +8,6 @@ function Card({ id, title, imageUrl, price, types, sizes }) {
   const [selectedSize, setSelectedSize] = React.useState(0);
   const exsistTypes = ['тонкое', 'традиционное'];
 
-  console.log('types', types);
-  console.log('sizes', sizes);
-
   return (
     <section className={styles.card}>
       <Link to={'/product/' + id}>
