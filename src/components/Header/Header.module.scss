@@ -17,11 +17,13 @@ header {
     background-color: #f7f7f7;
   }
 
-  @media (max-width: 520px) {
+  @media (max-width: 940px) {
     justify-content: center;
 
     .info {
-      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
       text-align: center;
     }
   }

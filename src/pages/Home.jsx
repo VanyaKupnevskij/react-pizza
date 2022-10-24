@@ -13,6 +13,7 @@ function Home() {
   const [activeSort, setActiveSort] = React.useState({ name: 'популярности', sort: 'rating' });
   const [activeCategory, setActiveCategory] = React.useState(0);
   const [activePage, setActivePage] = React.useState(1);
+  const [searchValue, setSearchValue] = React.useState('');
 
   return (
     <main>
@@ -24,6 +25,8 @@ function Home() {
           setActiveCategory,
           activePage,
           setActivePage,
+          searchValue,
+          setSearchValue,
         }}>
         <Header />
         <section className={styles.section}>

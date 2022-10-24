@@ -14,6 +14,7 @@ function ListProducts() {
 
   const { activeSort } = React.useContext(AppContext);
   const { activeCategory } = React.useContext(AppContext);
+  const { searchValue } = React.useContext(AppContext);
   const { activePage, setActivePage } = React.useContext(AppContext);
 
   function countGetProductByWidth(width) {
@@ -30,6 +31,8 @@ function ListProducts() {
     const category = activeCategory !== 0 ? '&category=' + activeCategory : '';
     const limit = countGetProductByWidth(refRoot.current.offsetWidth);
     const curPage = activePage;
+    const search = searchValue !== '' ? '&title=' + searchValue : '';
+
     try {
       fetch(
         'https://6352be6aa9f3f34c3747f338.mockapi.io/products?' +
@@ -41,7 +44,8 @@ function ListProducts() {
           '&sortBy=' +
           sortBy +
           '&order=' +
-          order,
+          order +
+          search,
       )
         .then((resp) => resp.json())
         .then((res) => {
