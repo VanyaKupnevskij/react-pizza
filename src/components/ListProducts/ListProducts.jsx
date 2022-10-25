@@ -61,7 +61,7 @@ function ListProducts() {
   React.useEffect(() => {
     setActivePage(1);
     loadData();
-  }, [activeCategory]);
+  }, [activeCategory, searchValue]);
   React.useEffect(() => {
     loadData();
   }, [activeSort, activePage]);
