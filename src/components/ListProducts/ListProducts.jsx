@@ -6,16 +6,20 @@ import Paginator from '../Paginator/Paginator';
 
 import AppContext from '../../context';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setActivePage } from '../../redux/slices/PaginatorSlice';
+
 function ListProducts() {
   const [products, setProducts] = React.useState([]);
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   const refRoot = React.useRef(null);
 
-  const { activeSort } = React.useContext(AppContext);
-  const { activeCategory } = React.useContext(AppContext);
-  const { searchValue } = React.useContext(AppContext);
-  const { activePage, setActivePage } = React.useContext(AppContext);
+  const dispatch = useDispatch();
+  const activePage = useSelector((state) => state.paginator.activePage);
+  const searchValue = useSelector((state) => state.search.searchValue);
+  const activeSort = useSelector((state) => state.filter.activeSort);
+  const activeCategory = useSelector((state) => state.filter.activeCategory);
 
   function countGetProductByWidth(width) {
     if (width <= 808) return 4;
@@ -59,7 +63,7 @@ function ListProducts() {
   }
 
   React.useEffect(() => {
-    setActivePage(1);
+    dispatch(setActivePage(1));
     loadData();
   }, [activeCategory, searchValue]);
   React.useEffect(() => {

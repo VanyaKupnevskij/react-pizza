@@ -1,22 +1,22 @@
 import React from 'react';
-import AppContext from '../../context';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { setActiveCategory } from '../../redux/slices/FilterSlice';
+
 import styles from './Filter.module.scss';
 
 function Filter() {
-  const { activeCategory, setActiveCategory } = React.useContext(AppContext);
+  const activeCategory = useSelector((state) => state.filter.activeCategory);
+  const dispatch = useDispatch();
 
   const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
-
-  function onClickCategory(id) {
-    setActiveCategory(id);
-  }
 
   return (
     <ul className={styles.types}>
       {categories.map((item, ind) => (
         <li
           key={ind}
-          onClick={() => onClickCategory(ind)}
+          onClick={() => dispatch(setActiveCategory(ind))}
           className={activeCategory == ind ? styles.types_selected : ''}>
           {item}
         </li>

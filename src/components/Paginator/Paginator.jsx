@@ -1,14 +1,17 @@
 import React from 'react';
-import AppContext from '../../context';
 import cn from 'classnames';
 import styles from './Paginator.module.scss';
 import { TiArrowLeftThick, TiArrowRightThick } from 'react-icons/ti';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setActivePage } from '../../redux/slices/PaginatorSlice';
+
 function Paginator({ countTotalPages = 1 }) {
-  const { activePage, setActivePage } = React.useContext(AppContext);
+  const activePage = useSelector((state) => state.paginator.activePage);
+  const dispatch = useDispatch();
 
   function onClickPage(id) {
-    activePage !== id && id >= 1 && id <= countTotalPages && setActivePage(id);
+    activePage !== id && id >= 1 && id <= countTotalPages && dispatch(setActivePage(id));
   }
 
   return (

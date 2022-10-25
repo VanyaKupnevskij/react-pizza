@@ -1,10 +1,13 @@
 import React from 'react';
-import AppContext from '../../context';
-import { TiArrowLeftThick } from 'react-icons/ti';
+import { MdClear } from 'react-icons/md';
 import styles from './SearchBlock.module.scss';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchValue } from '../../redux/slices/SearchSlice';
+
 function SearchBlock() {
-  const { searchValue, setSearchValue } = React.useContext(AppContext);
+  const searchValue = useSelector((state) => state.search.searchValue);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.root}>
@@ -13,10 +16,10 @@ function SearchBlock() {
         type="text"
         value={searchValue}
         placeholder="Поиск пиццы..."
-        onChange={(e) => setSearchValue(e.target.value)}
+        onChange={(e) => dispatch(setSearchValue(e.target.value))}
       />
       {searchValue !== '' && (
-        <TiArrowLeftThick className={styles.clear} onClick={() => setSearchValue('')} />
+        <MdClear className={styles.clear} onClick={() => dispatch(setSearchValue(''))} />
       )}
     </div>
   );
