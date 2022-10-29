@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActiveSort } from '../../redux/slices/FilterSlice';
 
-const sortes = [
+export const sortes = [
   { name: 'популярности', sort: 'rating' },
   { name: 'популярности (убыванию)', sort: '-rating' },
   { name: 'цене', sort: 'price' },
