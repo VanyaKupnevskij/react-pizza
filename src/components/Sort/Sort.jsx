@@ -5,19 +5,20 @@ import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActiveSort } from '../../redux/slices/FilterSlice';
 
+const sortes = [
+  { name: 'популярности', sort: 'rating' },
+  { name: 'популярности (убыванию)', sort: '-rating' },
+  { name: 'цене', sort: 'price' },
+  { name: 'цене (убыванию)', sort: '-price' },
+  { name: 'алфавиту', sort: 'title' },
+  { name: 'алфавиту (убыванию)', sort: '-title' },
+];
+
 function Sort() {
   const [isOpenSort, setOpenSort] = React.useState(false);
   const activeSort = useSelector((state) => state.filter.activeSort);
   const dispatch = useDispatch();
 
-  const sortes = [
-    { name: 'популярности', sort: 'rating' },
-    { name: 'популярности (убыванию)', sort: '-rating' },
-    { name: 'цене', sort: 'price' },
-    { name: 'цене (убыванию)', sort: '-price' },
-    { name: 'алфавиту', sort: 'title' },
-    { name: 'алфавиту (убыванию)', sort: '-title' },
-  ];
   let selectedSort = activeSort.name;
 
   function onClickSort(item) {

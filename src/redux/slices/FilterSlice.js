@@ -5,7 +5,7 @@ const initialState = {
   activeSort: { name: 'популярности', sort: 'rating' },
 };
 
-export const filterSlice = createSlice({
+const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {

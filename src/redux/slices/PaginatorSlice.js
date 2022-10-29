@@ -4,7 +4,7 @@ const initialState = {
   activePage: 1,
 };
 
-export const paginatorSlice = createSlice({
+const paginatorSlice = createSlice({
   name: 'paginator',
   initialState,
   reducers: {

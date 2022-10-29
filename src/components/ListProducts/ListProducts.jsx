@@ -1,11 +1,11 @@
 import React from 'react';
+
 import styles from './ListProducts.module.scss';
 import Card from '../Card/Card';
 import Skeleton from '../Card/Skeleton';
 import Paginator from '../Paginator/Paginator';
 
-import AppContext from '../../context';
-
+import API from '../../apiAxios';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActivePage } from '../../redux/slices/PaginatorSlice';
 
@@ -38,8 +38,8 @@ function ListProducts() {
     const search = searchValue !== '' ? '&title=' + searchValue : '';
 
     try {
-      fetch(
-        'https://6352be6aa9f3f34c3747f338.mockapi.io/products?' +
+      API.get(
+        'products?' +
           '&page=' +
           curPage +
           '&limit=' +
@@ -50,13 +50,11 @@ function ListProducts() {
           '&order=' +
           order +
           search,
-      )
-        .then((resp) => resp.json())
-        .then((res) => {
-          setIsLoaded(true);
-          setProducts(res);
-          window.scrollTo(0, 0);
-        });
+      ).then((res) => {
+        setIsLoaded(true);
+        setProducts(res.data);
+        window.scrollTo(0, 0);
+      });
     } catch (err) {
       console.log(err);
     }
