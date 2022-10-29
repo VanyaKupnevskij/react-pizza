@@ -18,6 +18,7 @@ function Sort() {
   const [isOpenSort, setOpenSort] = React.useState(false);
   const activeSort = useSelector((state) => state.filter.activeSort);
   const dispatch = useDispatch();
+  const refRoot = React.useRef(null);
 
   let selectedSort = activeSort.name;
 
@@ -26,8 +27,20 @@ function Sort() {
     setOpenSort(false);
   }
 
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.path.includes(refRoot.current)) {
+        setOpenSort(false);
+      }
+    };
+
+    document.body.addEventListener('click', handleClickOutside);
+
+    return () => document.body.removeEventListener('click', handleClickOutside);
+  }, []);
+
   return (
-    <div className={styles.sort}>
+    <div ref={refRoot} className={styles.sort}>
       <div>
         <img className={isOpenSort ? styles.img_opened : ''} src={'images/topdown.svg'} />
         <span>Сортировка по:</span>
